@@ -1,0 +1,54 @@
+# ────────────────────────────────────────────────────
+# Docker Compose — Anket & Veri Toplama Platformu
+# ────────────────────────────────────────────────────
+
+services:
+  # ── Next.js Application ──────────────────────────
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: survey-platform
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT:-3000}:3000"
+    environment:
+      - NODE_ENV=production
+      - NEXT_TELEMETRY_DISABLED=1
+    networks:
+      - survey-net
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+
+  # ── PostgreSQL (Gelecek backend entegrasyonu için hazır) ──
+  db:
+    image: postgres:16-alpine
+    container_name: survey-db
+    restart: unless-stopped
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-survey_admin}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-secure_password_change_me}
+      POSTGRES_DB: ${POSTGRES_DB:-survey_platform}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - survey-net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-survey_admin}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  survey-net:
+    driver: bridge

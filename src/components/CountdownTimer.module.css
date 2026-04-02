@@ -1,0 +1,97 @@
+.timer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--r-s);
+  margin-bottom: 14px;
+  color: var(--text-2);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.timer svg {
+  flex-shrink: 0;
+}
+
+.warning {
+  border-color: rgba(245, 158, 11, 0.3);
+  color: var(--gold);
+  background: var(--gold-bg);
+}
+
+.warning svg {
+  color: var(--gold);
+}
+
+.urgent {
+  border-color: rgba(239, 68, 68, 0.3);
+  color: var(--red);
+  background: var(--red-bg);
+  animation: urgentGlow 2s ease-in-out infinite;
+}
+
+.urgent svg {
+  color: var(--red);
+}
+
+.expired {
+  border-color: rgba(239, 68, 68, 0.2);
+  color: var(--text-3);
+  background: var(--bg-input);
+  opacity: 0.7;
+}
+
+/* Segments */
+.segments {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.segment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 28px;
+}
+
+.value {
+  font-size: 0.9rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.label {
+  font-size: 0.58rem;
+  font-weight: 500;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 1px;
+}
+
+.separator {
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin: 0 1px;
+  margin-bottom: 10px;
+}
+
+/* Animations */
+.pulse {
+  animation: pulseAnim 1s ease-in-out infinite;
+}
+
+@keyframes pulseAnim {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes urgentGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+  50% { box-shadow: 0 0 12px 2px rgba(239, 68, 68, 0.15); }
+}

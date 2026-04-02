@@ -1,0 +1,125 @@
+.container {
+  margin-top: 10px;
+}
+
+/* Button */
+.analyzeBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: linear-gradient(135deg, rgba(108, 92, 231, 0.1), rgba(167, 139, 250, 0.1));
+  border: 1px solid rgba(108, 92, 231, 0.2);
+  border-radius: var(--r-full);
+  color: var(--accent-2);
+  font-family: var(--font);
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s var(--ease);
+}
+
+.analyzeBtn:hover {
+  background: var(--accent-bg);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px var(--accent-glow);
+}
+
+.sparkle {
+  animation: sparkleAnim 2s ease-in-out infinite;
+}
+
+/* Loading */
+.loading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--r-s);
+  animation: fadeIn 0.3s var(--ease);
+}
+
+.brain {
+  font-size: 1rem;
+  animation: brainPulse 1s ease-in-out infinite;
+}
+
+.loadText {
+  font-size: 0.75rem;
+  color: var(--text-2);
+  font-weight: 500;
+}
+
+/* Result */
+.result {
+  padding: 14px 16px;
+  border-radius: var(--r-s);
+  border: 1px solid;
+  animation: slideIn 0.4s var(--ease);
+}
+
+.result.green {
+  background: rgba(16, 185, 129, 0.06);
+  border-color: rgba(16, 185, 129, 0.2);
+}
+
+.result.blue {
+  background: rgba(59, 130, 246, 0.06);
+  border-color: rgba(59, 130, 246, 0.2);
+}
+
+.result.red {
+  background: rgba(239, 68, 68, 0.06);
+  border-color: rgba(239, 68, 68, 0.2);
+}
+
+.resultHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.resultIcon {
+  font-size: 1.1rem;
+}
+
+.resultLabel {
+  font-size: 0.78rem;
+  color: var(--text-2);
+}
+
+.resultLabel strong {
+  color: var(--text);
+}
+
+.resultSummary {
+  font-size: 0.78rem;
+  color: var(--text-2);
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.resetBtn {
+  background: none;
+  border: none;
+  color: var(--text-3);
+  font-family: var(--font);
+  font-size: 0.7rem;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.resetBtn:hover {
+  color: var(--accent-2);
+}
+
+/* Animations */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes sparkleAnim { 0%, 100% { transform: scale(1) rotate(0deg); } 50% { transform: scale(1.2) rotate(10deg); } }
+@keyframes brainPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }

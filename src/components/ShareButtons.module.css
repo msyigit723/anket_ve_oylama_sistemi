@@ -1,0 +1,49 @@
+.container {
+  display: flex;
+  gap: 4px;
+}
+
+.btn {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-3);
+  cursor: pointer;
+  transition: all 0.2s var(--ease);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+/* X/Twitter */
+.twitter:hover {
+  border-color: #1d9bf0;
+  color: #1d9bf0;
+  background: rgba(29, 155, 240, 0.08);
+}
+
+/* WhatsApp */
+.whatsapp:hover {
+  border-color: #25d366;
+  color: #25d366;
+  background: rgba(37, 211, 102, 0.08);
+}
+
+/* Copy */
+.copy:hover {
+  border-color: var(--accent);
+  color: var(--accent-2);
+  background: var(--accent-bg);
+}
+
+.copied {
+  border-color: var(--green) !important;
+  color: var(--green) !important;
+  background: var(--green-bg) !important;
+}

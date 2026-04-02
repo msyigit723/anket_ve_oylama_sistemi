@@ -1,36 +1,119 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📊 Anket & Veri Toplama Platformu
 
-## Getting Started
+Modern, interaktif ve ölçeklenebilir bir anket ve veri toplama platformu. Next.js ile geliştirilmiş, Docker ile konteynerleştirilmiş, CI/CD pipeline ile otomatize edilmiştir.
 
-First, run the development server:
+![Next.js](https://img.shields.io/badge/Next.js-15-black?logo=next.js)
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react)
+![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?logo=docker)
+![License](https://img.shields.io/badge/License-MIT-green)
+
+## ✨ Özellikler
+
+### 🎨 Arayüz & Tema
+- Koyu/Açık tema (localStorage + OS uyumlu)
+- Skeleton loader animasyonları
+- Glassmorphism tasarım dili
+
+### 📝 Anket Motoru
+- Metin ve resimli anketler
+- Animasyonlu progress bar sonuçlar
+- Geri sayımlı (countdown) süreli anketler
+- Kullanıcı üretimi anket oluşturma
+
+### 🏆 Oyunlaştırma
+- Puan sistemi (oy ver +10, anket oluştur +25)
+- 7 farklı rozet ve konfetili bildirim
+- Kullanıcı istatistikleri paneli
+
+### 💬 Sosyal Etkileşim
+- Yorum ve tartışma modülü (nested reply)
+- Sosyal paylaşım (X, WhatsApp)
+- Open Graph meta etiketleri
+
+### 📋 Veri Toplama
+- Lead generation formu (e-posta regex + telefon maskeleme)
+- Toast bildirim sistemi
+- CSV dışa aktarma
+
+### 🤖 Yapay Zeka
+- AI anket asistanı (konu bazlı öneri)
+- Sentiment (duygu) analizi
+
+### 🔐 Yetkilendirme
+- Kullanıcı kayıt/giriş (şifre hashleme)
+- İzole admin giriş portalı (`/panel-access`)
+- JWT-like token yönetimi
+- Protected routes (admin guard)
+
+### 🛠️ Admin Paneli
+- Anket, lead, yorum yönetimi
+- İçerik moderasyonu (flag/sil)
+- CSV/Excel dışa aktarma
+
+## 🚀 Hızlı Başlangıç
+
+### Geliştirme
 
 ```bash
+# Bağımlılıkları yükle
+npm install
+
+# Geliştirme sunucusunu başlat
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Tarayıcıda aç: [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Docker
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+# .env dosyası oluştur
+cp .env.example .env
 
-## Learn More
+# Konteyner başlat
+docker-compose up -d --build
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 🔑 Varsayılan Admin Bilgileri
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+E-posta: admin@anket.com
+Şifre:   Admin123!
+Giriş:   /panel-access
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📁 Proje Yapısı
 
-## Deploy on Vercel
+```
+src/
+├── app/
+│   ├── page.js              # Ana sayfa
+│   ├── login/               # Kullanıcı girişi
+│   ├── register/            # Kullanıcı kaydı
+│   ├── panel-access/        # Admin girişi
+│   ├── admin/               # Admin paneli
+│   ├── layout.js            # Root layout
+│   └── globals.css          # Design system
+├── components/              # UI bileşenleri
+│   ├── SurveyCard.js
+│   ├── ImageSurveyCard.js
+│   ├── AIAssistant.js
+│   ├── SentimentAnalysis.js
+│   ├── CommentSection.js
+│   └── ...
+└── context/                 # Global state
+    ├── AuthProvider.js
+    ├── ThemeProvider.js
+    ├── GamificationProvider.js
+    └── ToastProvider.js
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🐳 DevOps
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Dockerfile**: Multi-stage build (deps → build → runner)
+- **docker-compose.yml**: App + PostgreSQL
+- **CI/CD**: GitHub Actions (Lint → Build → Docker → Deploy)
+
+## 📄 Lisans
+
+MIT

@@ -1,0 +1,241 @@
+/* Section */
+.section {
+  margin-top: 12px;
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+}
+
+/* Toggle */
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  color: var(--text-3);
+  font-family: var(--font);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 4px 0;
+  transition: color 0.2s var(--ease);
+}
+
+.toggle:hover {
+  color: var(--text-2);
+}
+
+.chevron {
+  transition: transform 0.3s var(--ease);
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+/* Body */
+.body {
+  margin-top: 12px;
+  animation: fadeIn 0.25s var(--ease);
+}
+
+/* Form */
+.form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-bg);
+  border: 1px solid rgba(108, 92, 231, 0.2);
+  color: var(--accent-2);
+  font-size: 0.7rem;
+  font-weight: 700;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.commentInput,
+.replyInput {
+  flex: 1;
+  padding: 9px 14px;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--r-full);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 0.82rem;
+  outline: none;
+  transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+
+.commentInput:focus,
+.replyInput:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.commentInput::placeholder,
+.replyInput::placeholder {
+  color: var(--text-3);
+}
+
+.sendBtn {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent);
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s var(--ease);
+}
+
+.sendBtn:hover:not(:disabled) {
+  background: #5b4bd6;
+  transform: scale(1.05);
+}
+
+.sendBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* List */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.empty {
+  text-align: center;
+  padding: 16px;
+  font-size: 0.82rem;
+  color: var(--text-3);
+}
+
+/* Comment */
+.comment {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.comment:last-child {
+  border-bottom: none;
+}
+
+.commentHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.commentAvatar {
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-bg);
+  border: 1px solid rgba(108, 92, 231, 0.15);
+  color: var(--accent-2);
+  font-size: 0.65rem;
+  font-weight: 700;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.replyAvatar {
+  width: 22px;
+  height: 22px;
+  font-size: 0.58rem;
+}
+
+.commentMeta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.commentAuthor {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.commentTime {
+  font-size: 0.68rem;
+  color: var(--text-3);
+}
+
+.commentText {
+  font-size: 0.82rem;
+  color: var(--text-2);
+  margin-left: 34px;
+  line-height: 1.45;
+}
+
+.replyBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 34px;
+  margin-top: 4px;
+  background: none;
+  border: none;
+  color: var(--text-3);
+  font-family: var(--font);
+  font-size: 0.72rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 2px 0;
+  transition: color 0.2s var(--ease);
+}
+
+.replyBtn:hover {
+  color: var(--accent-2);
+}
+
+/* Replies */
+.replies {
+  margin-left: 34px;
+  padding-left: 12px;
+  border-left: 2px solid var(--border);
+  margin-top: 8px;
+}
+
+.reply {
+  padding: 8px 0;
+}
+
+.reply .commentText {
+  margin-left: 30px;
+}
+
+/* Reply Form */
+.replyForm {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 34px;
+  margin-top: 8px;
+  animation: fadeIn 0.2s var(--ease);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}

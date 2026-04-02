@@ -1,0 +1,232 @@
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 20px;
+  margin-bottom: 14px;
+  animation: slideUp 0.4s var(--ease);
+  transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+
+.card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Question */
+.question {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  line-height: 1.4;
+  color: var(--text);
+}
+
+/* Meta */
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+  font-size: 0.75rem;
+  color: var(--text-3);
+  font-weight: 500;
+}
+
+/* Options container */
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+/* ===== VOTE OPTION ===== */
+.voteOption {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--r-s);
+  cursor: pointer;
+  font-family: var(--font);
+  color: var(--text);
+  transition: all 0.2s var(--ease);
+  width: 100%;
+  text-align: left;
+}
+
+.voteOption:hover {
+  border-color: var(--accent);
+  background: var(--accent-bg);
+}
+
+.optLetter {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-bg);
+  border: 1px solid rgba(108, 92, 231, 0.18);
+  color: var(--accent-2);
+  font-size: 0.72rem;
+  font-weight: 700;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.optText {
+  flex: 1;
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.optHint {
+  font-size: 0.7rem;
+  color: var(--text-3);
+  opacity: 0;
+  transition: opacity 0.2s var(--ease);
+}
+
+.voteOption:hover .optHint {
+  opacity: 1;
+}
+
+/* ===== RESULT OPTION ===== */
+.resultOption {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--r-s);
+  overflow: hidden;
+}
+
+.resultBar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: var(--accent-bg);
+  border-radius: var(--r-s);
+  z-index: 0;
+  transition: width 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.resultOption .optLetter,
+.resultOption .optText {
+  z-index: 1;
+  position: relative;
+}
+
+.resultInfo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 1;
+  position: relative;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.resultPct {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--accent-2);
+  min-width: 42px;
+  text-align: right;
+}
+
+.resultCnt {
+  font-size: 0.7rem;
+  color: var(--text-3);
+  min-width: 36px;
+  text-align: right;
+}
+
+.crown {
+  font-size: 0.85rem;
+}
+
+/* Winner */
+.winner {
+  border-color: var(--gold);
+  box-shadow: 0 0 16px var(--gold-glow);
+}
+
+.winner .resultBar {
+  background: var(--gold-bg);
+}
+
+.winner .optLetter {
+  background: var(--gold-bg);
+  border-color: rgba(245, 158, 11, 0.25);
+  color: var(--gold);
+}
+
+.winner .resultPct {
+  color: var(--gold);
+}
+
+/* Selected by user */
+.selected {
+  border-color: var(--accent);
+}
+
+.selected .optLetter {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+/* Disabled */
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.disabled:hover {
+  border-color: var(--border);
+  background: var(--bg-input);
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 2px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.footInfo {
+  font-size: 0.75rem;
+  color: var(--text-3);
+  font-weight: 500;
+}
+
+/* Animations */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 540px) {
+  .card {
+    padding: 16px;
+  }
+}
